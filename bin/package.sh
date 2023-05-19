@@ -13,7 +13,7 @@ exit_on_err()
 }
 
 # maven package the sandbox
-mvn clean package -Dmaven.test.skip=true -f ../pom.xml || exit_on_err 1 "package repeater failed."
+mvn --settings settings.xml clean package -Dmaven.test.skip=true -f ../pom.xml || exit_on_err 1 "package repeater failed."
 
 mkdir -p ${REPEATER_TARGET_DIR}/plugins
 mkdir -p ${REPEATER_TARGET_DIR}/cfg
