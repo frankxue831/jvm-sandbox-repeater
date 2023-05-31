@@ -1,0 +1,11 @@
+<!-- error template for error.vm -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Velocity Error</title>
+</head>
+<body>
+    <h1>Velocity Error</h1>
+    <p>$error</p>
+</body>
+</html>

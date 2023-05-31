@@ -40,7 +40,7 @@ public class OnlineController {
     public String detail(@ModelAttribute("requestParams") RecordParams params, Model model){
         RepeaterResult<RecordDetailBO> result = recordService.getDetail(params);
         if (!result.isSuccess()) {
-            return "/error/404";
+            return "error/404";
         }
         model.addAttribute("record", result.getData());
         return "online/detail";

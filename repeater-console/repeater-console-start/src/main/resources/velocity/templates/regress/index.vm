@@ -66,6 +66,15 @@
                             </p>
                         </a>
                     </li>
+                    <!-- replay -->
+                    <li class="nav-item">
+                        <a href="/replay/detail.htm"  class="nav-link">
+                            <i class="nav-icon fa fa-video"></i>
+                            <p>
+                                回放流量
+                            </p>
+                        </a>
+
                     <li class="nav-item">
                         <a href="/config/list.htm"  class="nav-link">
                             <i class="nav-icon fa fa-cogs"></i>

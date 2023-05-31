@@ -45,7 +45,7 @@ public class ModuleConfigController {
     public String detail(@ModelAttribute("requestParams") ModuleConfigParams params, Model model) {
         RepeaterResult<ModuleConfigBO> result = moduleConfigService.query(params);
         if (!result.isSuccess()) {
-            return "/error/404";
+            return "error/404";
         }
         model.addAttribute("config", result.getData().getConfig());
         return "config/detail";
@@ -55,7 +55,7 @@ public class ModuleConfigController {
     public String edit(@ModelAttribute("requestParams") ModuleConfigParams params, Model model) {
         RepeaterResult<ModuleConfigBO> result = moduleConfigService.query(params);
         if (!result.isSuccess()) {
-            return "/error/404";
+            return "error/404";
         }
         model.addAttribute("config", result.getData().getConfig());
         return "config/edit";
@@ -78,7 +78,7 @@ public class ModuleConfigController {
             model.addAttribute("config", JacksonUtil.serialize(defaultConf));
         } catch (SerializeException e) {
             model.addAttribute("errorMessage", e.getMessage());
-            return "/error/404";
+            return "error/404";
         }
         return "config/add";
     }
