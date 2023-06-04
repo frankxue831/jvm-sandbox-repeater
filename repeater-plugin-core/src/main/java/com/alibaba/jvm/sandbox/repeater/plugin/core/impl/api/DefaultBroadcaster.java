@@ -92,6 +92,7 @@ public class DefaultBroadcaster extends AbstractBroadcaster {
         HashMap<String, String> headers = Maps.newHashMap();
         headers.put("content-type", "application/json");
         Resp resp = HttpUtil.invokePostBody(url, headers, body);
+        log.info("broadcast to {} with body {} ", url, body);
         if (resp.isSuccess()) {
             log.info("broadcast success,traceId={},resp={}", traceId, resp);
         } else {

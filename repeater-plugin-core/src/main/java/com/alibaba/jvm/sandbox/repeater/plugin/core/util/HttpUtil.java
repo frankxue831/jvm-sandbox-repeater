@@ -408,7 +408,7 @@ public class HttpUtil {
         private String message;
 
         @ConstructorProperties({"code", "body", "message"})
-        Resp(int code, String body, String message) {
+        public Resp(int code, String body, String message) {
             this.code = code;
             this.body = body;
             this.message = message;
@@ -437,6 +437,12 @@ public class HttpUtil {
         @Override
         public String toString() {
             return "HttpUtil.Resp(code=" + this.getCode() + ", body=" + this.getBody() + ", message=" + this.getMessage() + ")";
+        }
+
+        public void setSuccess(boolean b) {
+        }
+
+        public void setBody(String s) {
         }
 
         public static class RespBuilder {

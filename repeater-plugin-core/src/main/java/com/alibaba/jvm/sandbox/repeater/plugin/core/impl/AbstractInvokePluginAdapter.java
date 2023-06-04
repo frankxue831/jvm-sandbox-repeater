@@ -117,6 +117,7 @@ public abstract class AbstractInvokePluginAdapter implements InvokePlugin {
                 throw new PluginLifeCycleException("enhance models is empty, plugin type is " + identity());
             }
             for (EnhanceModel em : enhanceModels) {
+                log.info("the enhance model is {}", em.getClassPattern());
                 IBuildingForBehavior behavior = null;
                 IBuildingForClass builder4Class = new EventWatchBuilder(watcher).onClass(em.getClassPattern());
                 if (em.isIncludeSubClasses()) {

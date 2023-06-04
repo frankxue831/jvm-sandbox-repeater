@@ -70,6 +70,14 @@ public class PluginClassRouting {
                 .matcher(Matcher.PLUGIN)
                 .block(true)
                 .build();
+        // reactornetty对httphandler路由
+        PluginClassRouting reactorNettyPluginRouting = PluginClassRouting.builder()
+                .targetClass("org.springframework.http.server.reactive.HttpHandler")
+                .classPattern("^org.springframework.http.server..*")
+                .identity("http-new")
+                .matcher(Matcher.PLUGIN)
+                .block(true)
+                .build();
         // dubbo回放器中对dubbo框架路由
         PluginClassRouting dubboRepeaterRouting = PluginClassRouting.builder()
                 .targetClass("org.apache.dubbo.rpc.model.ApplicationModel")
@@ -78,7 +86,7 @@ public class PluginClassRouting {
                 .matcher(Matcher.REPEATER)
                 .block(false)
                 .build();
-        return transformRouting(Lists.newArrayList(httpPluginRouting, dubboRepeaterRouting), isPreloading, timeout);
+        return transformRouting(Lists.newArrayList(httpPluginRouting, reactorNettyPluginRouting, dubboRepeaterRouting), isPreloading, timeout);
     }
 
     /**

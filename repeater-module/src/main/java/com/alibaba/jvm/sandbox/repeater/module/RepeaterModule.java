@@ -137,6 +137,7 @@ public class RepeaterModule implements Module, ModuleLifecycle {
                 invocationListener = new DefaultInvocationListener(broadcaster);
                 RepeaterResult<RepeaterConfig> pr = configManager.pullConfig();
                 if (pr.isSuccess()) {
+                    log.info("pull the config from {}", pr.getData().getPluginsPath());
                     log.info("pull repeater config success,config={}", pr.getData());
                     ClassloaderBridge.init(loadedClassDataSource);
                     initialize(pr.getData());
